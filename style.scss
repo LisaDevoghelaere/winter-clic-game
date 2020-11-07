@@ -1,0 +1,59 @@
+// --------------*---------- Variables --------*-------------
+$font-principal : 'Sacramento', cursive;
+$bg-primary : rgb(43, 46, 199);
+$border : rgb(140, 138, 241);
+
+//Base
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+    font-family: $font-principal;
+    user-select: none;
+}
+body{
+    background-color: $bg-primary;
+    min-height: 100vh;
+    text-align: center;
+}
+#canvas {
+    cursor: pointer; //crosshair
+    border: none;
+    border: 1px $border solid;
+    background-image: url(media/fondwinter.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 10px 15px rgb(26, 22, 53);
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 704px;
+    width: 340px;
+    .flocon {
+        // peut aparaitre partout 
+        position: absolute;
+        transform: translate(-50%, -50%);
+        //taille déterminé en/par le js
+        height: var(--y);
+        width: var(--x);
+        --scaler: 1;
+        animation: floconAnim 14s forwards;
+    
+        &:hover {
+          --scaler: 1.03;
+        }
+        &:active {
+          --scaler: 0.97;
+        }
+    }
+      @keyframes floconAnim {
+          //déplacement aléatoire sur axe x/y
+        from {
+          transform: translate(0%, 0%) scale(var(--scaler));
+        }
+        to {
+          transform: translate(var(--trX), var(--trY)) scale(var(--scaler));
+        }
+    }
+    
+}

@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Sacramento", cursive;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body {
+  background-color: #2b2ec7;
+  min-height: 100vh;
+  text-align: center;
+}
+
+#canvas {
+  cursor: pointer;
+  border: none;
+  border: 1px #8c8af1 solid;
+  background-image: url(media/fondwinter.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-box-shadow: 0 10px 15px #1a1635;
+          box-shadow: 0 10px 15px #1a1635;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 704px;
+  width: 340px;
+}
+
+#canvas .flocon {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: var(--y);
+  width: var(--x);
+  --scaler: 1;
+  -webkit-animation: floconAnim 14s forwards;
+          animation: floconAnim 14s forwards;
+}
+
+#canvas .flocon:hover {
+  --scaler: 1.03;
+}
+
+#canvas .flocon:active {
+  --scaler: 0.97;
+}
+
+@-webkit-keyframes floconAnim {
+  from {
+    -webkit-transform: translate(0%, 0%) scale(var(--scaler));
+            transform: translate(0%, 0%) scale(var(--scaler));
+  }
+  to {
+    -webkit-transform: translate(var(--trX), var(--trY)) scale(var(--scaler));
+            transform: translate(var(--trX), var(--trY)) scale(var(--scaler));
+  }
+}
+
+@keyframes floconAnim {
+  from {
+    -webkit-transform: translate(0%, 0%) scale(var(--scaler));
+            transform: translate(0%, 0%) scale(var(--scaler));
+  }
+  to {
+    -webkit-transform: translate(var(--trX), var(--trY)) scale(var(--scaler));
+            transform: translate(var(--trX), var(--trY)) scale(var(--scaler));
+  }
+}
+/*# sourceMappingURL=style.css.map */
