@@ -5,6 +5,7 @@ const ecranFin = document.getElementById('ecran-fin');
 
 floconPop()
 
+//Créer les flocons
 function floconPop(){
     //on génère l'image (source en dessous)
     let flocon = new Image();
@@ -40,3 +41,13 @@ function floconPop(){
     canvas.appendChild(flocon);
     
 }
+
+//fonction pour faire dispraitre au clic (remove)
+document.addEventListener('click', function(e){
+    // Pour cibler un élément, savoir sur quoi on a cliqué
+    let targetElement = e.target || e.EventTarget;
+    //console.log(targetElement);
+    if (targetElement.classList.contains('flocon')) {
+        targetElement.remove();
+    }
+});

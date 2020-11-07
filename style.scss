@@ -38,7 +38,7 @@ body{
         width: var(--x);
         --scaler: 1;
         animation: floconAnim 14s forwards;
-    
+        //petite animation de changement de taille (légère pour rester fluide avec le déplacement)
         &:hover {
           --scaler: 1.03;
         }
@@ -54,6 +54,5 @@ body{
         to {
           transform: translate(var(--trX), var(--trY)) scale(var(--scaler));
         }
-    }
-    
+    }   
 }
