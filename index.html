@@ -4,17 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Flocons en folie</title>
-        <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&family=Sacramento&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div id="ecran-fin"></div>
-        <button id="start" onclick="start"> Go </button>
-        <div class="affichage-score">
-            <div class="txt-score">score : <span id="score">0</span></div>
-            <div class="tps-restant">
-                Temps Restant : 
-                <span id="temps">120</span>
+        <div class="flex">
+            <button id="start" onclick="start()"> Start </button>
+            <div class="affichage-score">
+                <div>
+                    <p class="txt-score">Score : <span id="score">0</span></p>
+                    <p class="tps-restant">
+                        Temps Restant : 
+                        <span id="temps">120</span>
+                    </p>
+                </div>
             </div>
         </div>
         

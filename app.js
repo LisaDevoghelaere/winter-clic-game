@@ -1,9 +1,46 @@
 const canvas = document.getElementById('canvas');
 const score = document.getElementById('score');
-const temps = document.getElementById('temps');
+let temps = document.getElementById('temps');
 const ecranFin = document.getElementById('ecran-fin');
 
-floconPop()
+
+temps = 60;
+gameOver = 50;
+loopPlay = false;
+
+function start(){
+    //compte du score
+    count = 0;
+    //pour que le pop des flocons accélère
+    getFaster = 5000;
+    //pour le redémarrage
+    timeRemaining = temps;
+
+    canvas.innerHTML = '';
+    score.innerHTML = count;
+    temps.innerHTML = temps;
+
+    //pour ne pas rejouer à partir de là où on en était dans la difficulé
+    loopPlay ? '' : game();
+    loopPlay = true;
+
+    game();
+    //mécanique du jeu
+    function game(){
+        let randomTime = Math.round(Math.random() * getFaster);
+        getFaster > 900 ? getFaster = (getFaster * 0.90) : '';
+
+        // de façon aléatoire toutes les tant de secondes tu vas envoyer un flocon
+        setTimeout(() =>{
+            //tu joues floconPop()
+            floconPop();
+            //rejoue game()
+            game();
+            //tous les "temps aléatoire"
+        }, randomTime);
+    }
+
+}
 
 //Créer les flocons
 function floconPop(){
@@ -13,7 +50,7 @@ function floconPop(){
     //on ajoute la classe flocon pour que ces derniers puissent apparaitre de façon aléatoire dans la zonde de jeu
     flocon.classList.add('flocon');
     //peu apparaitre partout dans le cadre canvas
-    flocon.style.top = Math.random() * 704 + 'px';
+    flocon.style.top = Math.random() * 600 + 'px';
     flocon.style.left = Math.random() * 340 + 'px';
 
     //taille de flocons aléatoire
@@ -29,7 +66,7 @@ function floconPop(){
     //translate x
     let trX = Math.random() * 340 * plusMinus;
     //translate y
-    let trY = Math.random() * 704 * plusMinus;
+    let trY = Math.random() * 600 * plusMinus;
     //on injecte le résultat
     flocon.style.setProperty('--trX', `${ trX }%`);
     flocon.style.setProperty('--trY', `${ trY }%`);
@@ -49,5 +86,7 @@ document.addEventListener('click', function(e){
     //console.log(targetElement);
     if (targetElement.classList.contains('flocon')) {
         targetElement.remove();
+        count ++;
+        score.innerHTML = count;
     }
 });

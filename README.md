@@ -28,3 +28,6 @@ Le jeu peut-être utilisé à partir de 5 ans pour apprendre à viser et cliquer
 -la précision
 -une musique désactivable
 
+
+penser à passer les valeur en rem
+
