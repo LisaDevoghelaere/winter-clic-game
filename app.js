@@ -1,24 +1,24 @@
 const canvas = document.getElementById('canvas');
 const score = document.getElementById('score');
-let temps = document.getElementById('temps');
-const ecranFin = document.getElementById('ecran-fin');
+const temps = document.getElementById('temps');
+const ecranFin = document.getElementById('ecranFin');
 
 
-temps = 60;
-gameOver = 50;
+tempsRestant = 50;
+gameOver = 60;
 loopPlay = false;
 
 function start(){
     //compte du score
     count = 0;
     //pour que le pop des flocons accélère
-    getFaster = 5000;
+    getFaster = 6000;
     //pour le redémarrage
-    timeRemaining = temps;
+    timeRemaining = tempsRestant;
 
     canvas.innerHTML = '';
     score.innerHTML = count;
-    temps.innerHTML = temps;
+    temps.innerHTML = timeRemaining;
 
     //pour ne pas rejouer à partir de là où on en était dans la difficulé
     loopPlay ? '' : game();
@@ -28,16 +28,38 @@ function start(){
     //mécanique du jeu
     function game(){
         let randomTime = Math.round(Math.random() * getFaster);
-        getFaster > 900 ? getFaster = (getFaster * 0.90) : '';
-
+        getFaster > 1500 ? getFaster = (getFaster * 0.95) : '';
+ 
         // de façon aléatoire toutes les tant de secondes tu vas envoyer un flocon
         setTimeout(() =>{
-            //tu joues floconPop()
-            floconPop();
-            //rejoue game()
-            game();
-            //tous les "temps aléatoire"
+
+            if (timeRemaining === 0) {
+               tuGagnes(); 
+            }else if(canvas.childElementCount < gameOver){
+
+                floconPop();
+
+                game();
+            }else{
+                perdu();
+            }
+
+             //tous les "temps aléatoire"
         }, randomTime);
+
+        const perdu = () => {
+        ecranFin.innerHTML =`<div class="perdu">Perdu!<br>score : ${count} </div>`;
+        ecranFin.style.visibility = 'visible';
+        ecranFin.style.opacity = '1';
+        loopPlay = false;
+        }
+        const tuGagnes = () =>{
+            let precision = Math.round(count / tempsRestant * 100);
+            ecranFin.innerHTML =`<div class="tuGagnes">Bravo!<br/>score : ${count} <br/> Précision : ${precision}% </div>`;
+            ecranFin.style.visibility = 'visible';
+            ecranFin.style.opacity = '1';
+            loopPlay = false;
+        }
     }
 
 }
@@ -89,4 +111,21 @@ document.addEventListener('click', function(e){
         count ++;
         score.innerHTML = count;
     }
+});
+//Décompte 'clic'
+canvas.addEventListener('click',() =>{
+    if (timeRemaining > 0) {
+        timeRemaining--;
+        temps.innerHTML = timeRemaining;
+    }
+});
+
+//faire disparaitre l'écran de fin
+ecranFin.addEventListener('click', () =>{
+    setTimeout(() =>{
+        start();
+        ecranFin.style.opacity = '0';
+        ecranFin.style.visibility = 'hidden';
+    }, 6000);
+  
 });
