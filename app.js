@@ -28,7 +28,7 @@ function start(){
     //mécanique du jeu
     function game(){
         let randomTime = Math.round(Math.random() * getFaster);
-        getFaster > 1500 ? getFaster = (getFaster * 0.95) : '';
+        getFaster > 3000 ? getFaster = (getFaster * 0.95) : '';
  
         // de façon aléatoire toutes les tant de secondes tu vas envoyer un flocon
         setTimeout(() =>{
