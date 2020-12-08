@@ -55,7 +55,7 @@ function start(){
         }
         const tuGagnes = () =>{
             let precision = Math.round(count / tempsRestant * 100);
-            ecranFin.innerHTML =`<div class="tuGagnes">Bravo!<br/>score : ${count} <br/> Précision : ${precision}% </div>`;
+            ecranFin.innerHTML =`<div class="tuGagnes">Bravo!<br/><span class="txt-score">score :</span> ${count} <br/><span class="txt-score"> Précision :</span> ${precision}% </div>`;
             ecranFin.style.visibility = 'visible';
             ecranFin.style.opacity = '1';
             loopPlay = false;

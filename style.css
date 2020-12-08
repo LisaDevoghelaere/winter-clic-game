@@ -71,6 +71,7 @@ p {
 }
 
 #ecranFin {
+  font-family: "Sacramento", cursive;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -86,33 +87,36 @@ p {
 }
 
 #ecranFin .perdu {
+  font-family: "Roboto", sans-serif;
   margin: 10rem auto 0;
   width: 70%;
-  line-height: 9rem;
-  font-size: 5rem;
+  line-height: 4rem;
+  font-size: 2rem;
   background: rgba(5, 0, 39, 0.7);
+  border-radius: 10px;
   color: #c5c5c5;
   -webkit-box-shadow: 0 10px 15px #030011;
           box-shadow: 0 10px 15px #030011;
+  padding: 1rem;
 }
 
 #ecranFin .tuGagnes {
+  font-family: "Roboto", sans-serif;
   margin: 7rem auto 0;
   width: 70%;
-  line-height: 9rem;
+  line-height: 4rem;
   color: white;
   background: rgba(189, 5, 189, 0.651);
   -webkit-box-shadow: 0 10px 15px #380138;
           box-shadow: 0 10px 15px #380138;
-  font-size: 4rem;
+  border-radius: 10px;
+  font-size: 2rem;
   padding: 1rem;
   text-shadow: 4px 2px 1px rgba(75, 1, 53, 0.808);
 }
 
-#ecranFin .tuGagnes span {
-  color: #0dd606;
-  font-weight: bold;
-  text-shadow: 3px 1px 1px rgba(2, 58, 7, 0.808);
+#ecranFin .tuGagnes .score {
+  font-family: "Roboto", sans-serif;
 }
 
 #canvas {
@@ -143,11 +147,11 @@ p {
 }
 
 #canvas .flocon:hover {
-  --scaler: 1.03;
+  --scaler: 1.05;
 }
 
 #canvas .flocon:active {
-  --scaler: 0.97;
+  --scaler: 0.95;
 }
 
 @-webkit-keyframes floconAnim {

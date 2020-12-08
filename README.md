@@ -2,16 +2,16 @@
 Jeu en vanilla JS où l'on shoot des flocons en cliquant dessus
 
 ## Le But du jeu
-Des flocons de diverse taille se balade sur l'écran. Le but est de cliquer dessus pour en faire disparaitre le plus possible sur une partie de X temps (à définir)
+Des flocons de diverse taille se baladent sur l'écran. Le but est de cliquer dessus pour en faire disparaitre le plus possible sur une partie.
 
-Sur la durée définie, le jeu va aller en se compliquant car les flocons vont se multiplier de plus en plus rapidement.
+Le jeu va aller en se compliquant car les flocons vont se multiplier de plus en plus rapidement.
 
-Si on arrive à plus de 50 flocons à l'écran avant la fin du timer, on a perdu !
+Si on arrive à plus de 50 flocons à l'écran, on a perdu !
 
 En revanche si on parvient à maintenir moins de 50 flocons pendant X temps, c'est gagné.
 
 ## Pédagogie
-Le jeu peut-être utilisé à partir de 5 ans pour apprendre à viser et cliquer avec précision.
+Le jeu peut-être utilisé à partir de 7 ans pour apprendre à viser et cliquer avec précision si on l'utilise en version desktop mais dès 4ans en version portable.
 
 ## Création du jeu
 ### Technologie
